@@ -1,0 +1,4 @@
+phpfpm:
+  build: ./docker/phpfpm
+  volumes:
+    - .:/code:ro

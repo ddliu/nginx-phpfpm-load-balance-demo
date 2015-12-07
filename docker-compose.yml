@@ -1,0 +1,23 @@
+nginx:
+  build: ./docker/nginx
+  ports: 
+    - "8004:80"
+  links:
+    - php1
+    - php2
+    - php3
+  volumes:
+    - .:/code:ro
+    - ./config/nginx.conf:/etc/nginx/sites-enabled/default:ro
+php1:
+  extends: 
+    file: ./common.yml
+    service: phpfpm
+php2:
+  extends: 
+    file: ./common.yml
+    service: phpfpm
+php3:
+  extends: 
+    file: ./common.yml
+    service: phpfpm
